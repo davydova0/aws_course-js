@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ca92e0a7-f912-4a92-8fb1-c7087fd75167" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2nG929gguXUdBncMssdmWvZf3WM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Olha_Davydova\\Desktop\\aws\\BE\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ca92e0a7-f912-4a92-8fb1-c7087fd75167" name="Changes" comment="" />
+      <created>1728588335078</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728588335078</updated>
+      <workItem from="1728588336200" duration="706000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/lib/hello-lambda/hello-lambda-stack.js" />
+        <option value="$PROJECT_DIR$/lib/hello-lambda/hello-lambda-stack.d.ts" />
+        <option value="$PROJECT_DIR$/lib/hello-lambda/handler.js" />
+        <option value="$PROJECT_DIR$/lib/hello-lambda/handler.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.0290fc250c632eb80911c9953e07c1b4a1d5f5a3b7164c6eeca885ce7ff94186/handler.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.0290fc250c632eb80911c9953e07c1b4a1d5f5a3b7164c6eeca885ce7ff94186/handler.d.ts" />
+        <option value="$PROJECT_DIR$/test/lambda.test.js" />
+        <option value="$PROJECT_DIR$/test/lambda.test.d.ts" />
+        <option value="$PROJECT_DIR$/lib/lambda-stack.js" />
+        <option value="$PROJECT_DIR$/lib/lambda-stack.d.ts" />
+        <option value="$PROJECT_DIR$/bin/lambda.js" />
+        <option value="$PROJECT_DIR$/bin/lambda.d.ts" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.0290fc250c632eb80911c9953e07c1b4a1d5f5a3b7164c6eeca885ce7ff94186/hello-lambda-stack.js" />
+        <option value="$PROJECT_DIR$/cdk.out/asset.0290fc250c632eb80911c9953e07c1b4a1d5f5a3b7164c6eeca885ce7ff94186/hello-lambda-stack.d.ts" />
+      </list>
+    </option>
+  </component>
+</project>

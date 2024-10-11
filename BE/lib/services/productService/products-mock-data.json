@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "title": "Golden Ornament",
+    "description": "A beautiful golden ornament for decoration",
+    "price": 1000
+  },
+  {
+    "id": "2",
+    "title": "Ruby Earrings",
+    "description": "Elegant earrings with rubies",
+    "price": 1200
+  },
+  {
+    "id": "3",
+    "title": "Diamond Ring",
+    "description": "Luxurious diamond ring",
+    "price": 3000
+  },
+  {
+    "id": "4",
+    "title": "Platinum Bracelet",
+    "description": "Stylish platinum bracelet",
+    "price": 2500
+  },
+  {
+    "id": "5",
+    "title": "Sapphire Pendant",
+    "description": "Charming pendant with a sapphire",
+    "price": 1500
+  },
+  {
+    "id": "6",
+    "title": "Gold Brooch",
+    "description": "Exquisite gold brooch",
+    "price": 800
+  },
+  {
+    "id": "7",
+    "title": "Pearl Necklace",
+    "description": "Elegant necklace with pearls",
+    "price": 2000
+  },
+  {
+    "id": "8",
+    "title": "Diamond Watch",
+    "description": "Exclusive watch adorned with diamonds",
+    "price": 5000
+  },
+  {
+    "id": "9",
+    "title": "Heart Locket",
+    "description": "Lovely heart-shaped locket",
+    "price": 700
+  },
+  {
+    "id": "10",
+    "title": "Gold Chain",
+    "description": "Classic gold chain",
+    "price": 600
+  }
+]
