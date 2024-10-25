@@ -3,6 +3,7 @@ import API_PATHS from "~/constants/apiPaths";
 import { AvailableProduct } from "~/models/Product";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import React from "react";
+import {getFormatterProduct, getJoinedProducts} from "~/utils/productFormatter";
 
 export function useAvailableProducts() {
   return useQuery<AvailableProduct[], AxiosError>(
@@ -11,7 +12,7 @@ export function useAvailableProducts() {
       const res = await axios.get<AvailableProduct[]>(
         `${API_PATHS.bff}/products`
       );
-      return JSON.parse(res.data);
+        return getJoinedProducts(res.data);
     }
   );
 }
@@ -29,11 +30,12 @@ export function useAvailableProduct(id?: string) {
     ["product", { id }],
     async () => {
       const res = await axios.get<AvailableProduct>(
-        `${API_PATHS.bff}/product/${id}`
+          `${API_PATHS.bff}/products/${id}`
       );
-      return res.data;
+        const result = Object.values(res.data);
+        return getFormatterProduct(getJoinedProducts([...result[0], ...result[1]]));
     },
-    { enabled: !!id }
+      {enabled: !!id}
   );
 }
 
