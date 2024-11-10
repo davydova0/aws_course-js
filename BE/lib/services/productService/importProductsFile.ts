@@ -27,6 +27,13 @@ export async function handler(event) {
         return {
             statusCode: 200,
             body: JSON.stringify({signedUrl}),
+            headers: {
+                "Content-Type": "*",
+                "Access-Control-Allow-Methods": "*",
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": "true",
+            }
         };
     } catch (error) {
         console.error('Error generating signed URL:', error);
