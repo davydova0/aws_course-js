@@ -6,6 +6,7 @@ import * as cdk from 'aws-cdk-lib';
 import * as path from 'path';
 import {Construct} from 'constructs';
 import * as apigateway from "aws-cdk-lib/aws-apigateway";
+import * as iam from 'aws-cdk-lib/aws-iam';
 
 export class ImportServiceStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -50,8 +51,64 @@ export class ImportServiceStack extends cdk.Stack {
         });
 
         const importProductsLambdaIntegration = new apigateway.LambdaIntegration(importProductsFileLambda, {});
-        const importProductsResource = api.root.addResource("import-products", {});
-        importProductsResource.addMethod('GET', importProductsLambdaIntegration);
 
+        const basicAuthorizerLambdaArn = cdk.Fn.importValue('BasicAuthorizerLambdaArn');
+
+        const basicAuthorizerFunction = lambda.Function.fromFunctionArn(this, 'ImportedBasicAuthorizerFunction', basicAuthorizerLambdaArn);
+        console.log( basicAuthorizerFunction)
+        basicAuthorizerFunction.addPermission('ApiGatewayPermission', {
+            principal: new iam.ServicePrincipal('apigateway.amazonaws.com'),
+            action: 'lambda:InvokeFunction',
+            sourceArn: api.arnForExecuteApi(),
+        });
+
+        const basicAuthorizer = new apigateway.RequestAuthorizer(this, 'BasicAuthorizer', {
+            handler: basicAuthorizerFunction,
+            identitySources: ['method.request.header.Authorization'],
+            assumeRole: new iam.Role(this, 'LambdaAuthorizerRole', {
+                assumedBy: new iam.ServicePrincipal('apigateway.amazonaws.com'),
+            }),
+        });
+
+        const importProductsResource = api.root.addResource("import-products", {});
+        importProductsResource.addMethod('GET', importProductsLambdaIntegration, {
+            authorizer: basicAuthorizer,
+            authorizationType: apigateway.AuthorizationType.CUSTOM,
+            methodResponses: [{  // Настройка ответов для поддержки CORS
+                statusCode: '200',
+                responseParameters: {
+                    'method.response.header.Access-Control-Allow-Origin': true,
+                    'method.response.header.Access-Control-Allow-Headers': true,
+                    'method.response.header.Access-Control-Allow-Methods': true
+                }
+            }]
+        });
+        const corsIntegration = new apigateway.MockIntegration({
+            integrationResponses: [{
+                statusCode: '200',
+                responseParameters: {
+                    'method.response.header.Access-Control-Allow-Headers': "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods'",
+                    'method.response.header.Access-Control-Allow-Origin': "'*'",
+                    'method.response.header.Access-Control-Allow-Methods': "'OPTIONS,GET,POST,PUT,DELETE'"
+                }
+            }],
+            passthroughBehavior: apigateway.PassthroughBehavior.NEVER,
+            requestTemplates: {
+                "application/json": "{\"statusCode\": 200}"
+            }
+        });
+
+        const optionsMethodResponse = {
+            statusCode: '200',
+            responseParameters: {
+                'method.response.header.Access-Control-Allow-Headers': true,
+                'method.response.header.Access-Control-Allow-Methods': true,
+                'method.response.header.Access-Control-Allow-Origin': true,
+            }
+        };
+
+        importProductsResource.addMethod('OPTIONS', corsIntegration, {
+            methodResponses: [optionsMethodResponse]
+        });
     }
 }

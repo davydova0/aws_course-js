@@ -3,6 +3,8 @@
 *.d.ts
 node_modules
 .idea
+/lib/services/authService/.env
+/lib/services/authService/node_modules
 
 # CDK asset staging directory
 .cdk.staging
