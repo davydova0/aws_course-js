@@ -28,27 +28,31 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
 
     const authorization_token = localStorage.getItem('authorization_token');
 
-    const response = await axios({
-      method: "GET",
-      url,
-      params: {
-        fileName: encodeURIComponent(file?.name),
-      },
-      headers: {
-        Authorization: `Basic ${authorization_token}`
-      }
-    });
+    try {
+      const response = await axios({
+        method: "GET",
+        url,
+        params: {
+          fileName: encodeURIComponent(file?.name),
+        },
+        headers: {
+          Authorization: `Basic ${authorization_token}`
+        }
+      });
 
-    console.log("File to upload: ", file.name);
-    console.log("Uploading to: ", response.data);
+      console.log("File to upload: ", file.name);
+      console.log("Uploading to: ", response.data);
 
-    const result = await fetch(response.data.signedUrl, {
-      method: "PUT",
-      body: file,
-    });
+      const result = await fetch(response.data.signedUrl, {
+        method: "PUT",
+        body: file,
+      });
 
-    console.log("Result: ", result);
-    setFile(file);
+      console.log("Result: ", result);
+      setFile(file);
+    } catch (err) {
+      console.log(err)
+    }
   };
   return (
     <Box>

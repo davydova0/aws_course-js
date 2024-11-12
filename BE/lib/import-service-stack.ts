@@ -55,7 +55,7 @@ export class ImportServiceStack extends cdk.Stack {
         const basicAuthorizerLambdaArn = cdk.Fn.importValue('BasicAuthorizerLambdaArn');
 
         const basicAuthorizerFunction = lambda.Function.fromFunctionArn(this, 'ImportedBasicAuthorizerFunction', basicAuthorizerLambdaArn);
-        console.log( basicAuthorizerFunction)
+
         basicAuthorizerFunction.addPermission('ApiGatewayPermission', {
             principal: new iam.ServicePrincipal('apigateway.amazonaws.com'),
             action: 'lambda:InvokeFunction',
@@ -74,15 +74,8 @@ export class ImportServiceStack extends cdk.Stack {
         importProductsResource.addMethod('GET', importProductsLambdaIntegration, {
             authorizer: basicAuthorizer,
             authorizationType: apigateway.AuthorizationType.CUSTOM,
-            methodResponses: [{  // Настройка ответов для поддержки CORS
-                statusCode: '200',
-                responseParameters: {
-                    'method.response.header.Access-Control-Allow-Origin': true,
-                    'method.response.header.Access-Control-Allow-Headers': true,
-                    'method.response.header.Access-Control-Allow-Methods': true
-                }
-            }]
         });
+
         const corsIntegration = new apigateway.MockIntegration({
             integrationResponses: [{
                 statusCode: '200',

@@ -9,15 +9,19 @@ export async function handler(event) {
         const authHeader = event.headers.Authorization;
         if (!authHeader) {
             return {
-                statusCode: 401,
-                body: 'Authorization header is missing'
+                policyDocument: {
+                    Version: '2012-10-17',
+                    Statement: [{Action: 'execute-api:Invoke', Effect: 'Deny', Resource: event.methodArn}],
+                }
             };
         }
         const [authType, token] = authHeader.split(' ');
         if (authType !== 'Basic' || !token) {
             return {
-                statusCode: 401,
-                body: 'Invalid Authorization header format'
+                policyDocument: {
+                    Version: '2012-10-17',
+                    Statement: [{Action: 'execute-api:Invoke', Effect: 'Deny', Resource: event.methodArn}],
+                }
             };
         }
         const [username, password] = Buffer.from(token, 'base64').toString('utf-8').split(':');
@@ -25,8 +29,11 @@ export async function handler(event) {
         const expectedPassword = process.env[username];
         if (!expectedPassword || expectedPassword !== password) {
             return {
-                statusCode: 403,
-                body: 'Access denied'
+
+                policyDocument: {
+                    Version: '2012-10-17',
+                    Statement: [{Action: 'execute-api:Invoke', Effect: 'Deny', Resource: event.methodArn}],
+                }
             };
         }
         return {
