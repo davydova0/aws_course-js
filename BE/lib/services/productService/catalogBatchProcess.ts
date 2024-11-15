@@ -27,7 +27,7 @@ exports.handler = async function (event: any) {
             await docClient.send(new PutCommand(params));
 
             const snsParams = {
-                Message: `New product created: ${params.Item.title.S}`,
+                Message: `New product created: ${params.Item.title}`,
                 TopicArn: process.env.SNS_TOPIC_ARN
             };
             await snsClient.send(new PublishCommand(snsParams));
