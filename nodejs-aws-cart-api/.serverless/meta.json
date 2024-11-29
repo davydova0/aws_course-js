@@ -1,0 +1,158 @@
+{
+  "C:\\Users\\Olha_Davydova\\Desktop\\New folder\\aws_course-js\\nodejs-aws-cart-api": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.13",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "default-aws-credential-resolver": "<REDACTED>",
+      "sls": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "service": "nestjs-serverless",
+            "provider": {
+              "name": "aws",
+              "runtime": "nodejs20.x",
+              "stage": "dev",
+              "region": "us-east-1",
+              "versionFunctions": true
+            },
+            "functions": {
+              "app": {
+                "handler": "dist/src/main.handler",
+                "events": [
+                  {
+                    "http": {
+                      "path": "/",
+                      "method": "any"
+                    }
+                  },
+                  {
+                    "http": {
+                      "path": "{proxy+}",
+                      "method": "any"
+                    }
+                  }
+                ]
+              }
+            },
+            "plugins": [
+              "serverless-offline",
+              "serverless-esbuild"
+            ],
+            "custom": {
+              "serverless-offline": {
+                "httpPort": 3000,
+                "noPrependStageInUrl": true
+              }
+            }
+          },
+          "configFileDirPath": "C:\\Users\\Olha_Davydova\\Desktop\\New folder\\aws_course-js\\nodejs-aws-cart-api",
+          "config": {
+            "type": "sls"
+          },
+          "options": {},
+          "stage": "dev",
+          "dashboard": null,
+          "logger": {
+            "namespace": "s:core:resolver:sls",
+            "prefix": null,
+            "prefixColor": null
+          },
+          "_credentialsPromise": "<REDACTED>"
+        },
+        "resolvers": {}
+      }
+    },
+    "composeServiceName": null,
+    "servicePath": "C:\\Users\\Olha_Davydova\\Desktop\\New folder\\aws_course-js\\nodejs-aws-cart-api",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "nestjs-serverless",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs20.x",
+        "stage": "dev",
+        "region": "us-east-1",
+        "versionFunctions": true
+      },
+      "functions": {
+        "app": {
+          "handler": "dist/src/main.handler",
+          "events": [
+            {
+              "http": {
+                "path": "/",
+                "method": "any"
+              }
+            },
+            {
+              "http": {
+                "path": "{proxy+}",
+                "method": "any"
+              }
+            }
+          ]
+        }
+      },
+      "plugins": [
+        "serverless-offline",
+        "serverless-esbuild"
+      ],
+      "custom": {
+        "serverless-offline": {
+          "httpPort": 3000,
+          "noPrependStageInUrl": true
+        }
+      }
+    },
+    "serviceRawFile": "service: nestjs-serverless\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  stage: dev\r\n  region: us-east-1\r\n\r\nfunctions:\r\n  app:\r\n    handler: dist/src/main.handler\r\n    events:\r\n      - http:\r\n          path: /\r\n          method: any\r\n      - http:\r\n          path: '{proxy+}'\r\n          method: any\r\n\r\nplugins:\r\n  - serverless-offline\r\n  - serverless-esbuild\r\n\r\ncustom:\r\n  serverless-offline:\r\n    httpPort: 3000\r\n    noPrependStageInUrl: true",
+    "command": [
+      "offline"
+    ],
+    "options": {},
+    "error": {
+      "message": "Serverless now includes ESBuild and supports Typescript out-of-the-box. But this conflicts with the plugin 'serverless-esbuild'.\nYou can either remove this plugin and try Serverless's ESBuild support builtin, or you can set 'build.esbuild' to false in your 'serverless.yml'.\nFor more information go to, https://slss.io/buildoptions",
+      "stack": "ServerlessError2: Serverless now includes ESBuild and supports Typescript out-of-the-box. But this conflicts with the plugin 'serverless-esbuild'.\nYou can either remove this plugin and try Serverless's ESBuild support builtin, or you can set 'build.esbuild' to false in your 'serverless.yml'.\nFor more information go to, https://slss.io/buildoptions\n    at PluginManager.addPlugin (file:///C:/Users/Olha_Davydova/.serverless/releases/4.4.13/package/dist/sf-core.js:925:65)\n    at file:///C:/Users/Olha_Davydova/.serverless/releases/4.4.13/package/dist/sf-core.js:925:1435\n    at Array.forEach (<anonymous>)\n    at PluginManager.loadAllPlugins (file:///C:/Users/Olha_Davydova/.serverless/releases/4.4.13/package/dist/sf-core.js:925:1413)\n    at async Serverless.init (file:///C:/Users/Olha_Davydova/.serverless/releases/4.4.13/package/dist/sf-core.js:932:9985)\n    at async runFramework (file:///C:/Users/Olha_Davydova/.serverless/releases/4.4.13/package/dist/sf-core.js:980:1336)\n    at async route (file:///C:/Users/Olha_Davydova/.serverless/releases/4.4.13/package/dist/sf-core.js:1010:14772)\n    at async Object.run2 [as run] (file:///C:/Users/Olha_Davydova/.serverless/releases/4.4.13/package/dist/sf-core.js:1010:15173)\n    at async run3 (file:///C:/Users/Olha_Davydova/.serverless/releases/4.4.13/package/dist/sf-core.js:1010:16435)",
+      "code": "PLUGIN_TYPESCRIPT_CONFLICT"
+    },
+    "params": {},
+    "machineId": "838eb5cad62bf715f530b8f68a059ee0",
+    "stage": "dev",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "d3f16ec7-7817-4402-828b-18442567c1a1",
+    "orgName": "testt123",
+    "userId": "V0rM4Vy9g24G0W06gh",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "testt123",
+    "subscription": null,
+    "userEmail": "olga.davydova.2001@gmail.com",
+    "serviceProviderAwsRegion": "us-east-1",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "536697227434",
+    "projectType": "traditional",
+    "versionSf": "4.4.13",
+    "serviceUniqueId": "arn:aws:cloudformation:us-east-1:536697227434:stack/BackendIntegrationStack/5d83c220-ad11-11ef-a442-123d43fff131",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:536697227434:stack/BackendIntegrationStack/5d83c220-ad11-11ef-a442-123d43fff131",
+    "serviceProviderAwsCfStackCreated": "2024-11-27T22:45:57.067Z",
+    "serviceProviderAwsCfStackUpdated": "2024-11-29T14:22:51.955Z",
+    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
+    "serviceProviderAwsCfStackOutputs": [
+      {
+        "OutputKey": "APIProductDBEndpoint8EC5FCE2",
+        "OutputValue": "https://paothjng4i.execute-api.us-east-1.amazonaws.com/prod/"
+      }
+    ]
+  }
+}
